@@ -34,7 +34,6 @@ class CreateComponentTask extends DefaultTask {
     /**
      * The component name
      */
-    @Option(option = 'name', description = 'Component name')
     String componentName = 'MyComponent'
 
     CreateComponentTask() {
@@ -55,5 +54,14 @@ class CreateComponentTask extends DefaultTask {
                 javaDir:Util.getMainSourceSet(project, true).srcDirs.first(),
                 componentName:componentName
         ).run()
+    }
+
+    @Option(option = 'name', description = 'Component name')
+    String getComponentName() {
+        componentName
+    }
+
+    void setComponentName(String componentName) {
+        this.componentName = componentName
     }
 }

@@ -19,6 +19,9 @@ import com.devsoap.plugin.Util
 import com.devsoap.plugin.creators.ThemeCreator
 import com.devsoap.plugin.extensions.VaadinPluginExtension
 import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Internal
+import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.options.Option
 import org.gradle.api.tasks.TaskAction
 
@@ -60,5 +63,14 @@ class CreateThemeTask extends DefaultTask {
                 themesDirectory:Util.getThemesDirectory(project),
                 vaadinVersion:vaadin.version
         ).run()
+    }
+
+    @Internal
+    String getThemeName() {
+        themeName
+    }
+
+    void setThemeName(String themeName) {
+        this.themeName = themeName
     }
 }

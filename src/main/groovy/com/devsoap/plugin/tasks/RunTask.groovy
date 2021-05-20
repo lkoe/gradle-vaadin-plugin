@@ -15,7 +15,7 @@
  */
 package com.devsoap.plugin.tasks
 
-import com.devsoap.plugin.MessageLogger
+
 import com.devsoap.plugin.servers.ApplicationServer
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.options.Option

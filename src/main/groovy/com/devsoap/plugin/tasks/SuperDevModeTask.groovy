@@ -15,7 +15,7 @@
  */
 package com.devsoap.plugin.tasks
 
-import com.devsoap.plugin.MessageLogger
+
 import com.devsoap.plugin.Util
 import com.devsoap.plugin.servers.ApplicationServer
 import org.gradle.api.DefaultTask
@@ -25,6 +25,7 @@ import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
+import org.gradle.internal.deprecation.DeprecationLogger
 
 /**
  * Runs the GWT codeserver as well as runs the application in SuperDevMode mode.
@@ -243,7 +244,7 @@ class SuperDevModeTask extends DefaultTask {
      */
     @Deprecated
     Boolean getServerRestart() {
-        MessageLogger.nagUserOfDiscontinuedProperty(new Throwable(RunTask.SERVER_RESTART_DEPRECATED_MESSAGE))
+        DeprecationLogger.deprecateProperty(getClass(), "serverRestart")
         false
     }
 
@@ -254,7 +255,7 @@ class SuperDevModeTask extends DefaultTask {
      */
     @Deprecated
     void setServerRestart(Boolean restart) {
-        MessageLogger.nagUserOfDiscontinuedProperty(new Throwable(RunTask.SERVER_RESTART_DEPRECATED_MESSAGE))
+        DeprecationLogger.deprecateProperty(getClass(), "serverRestart")
         restart
     }
 

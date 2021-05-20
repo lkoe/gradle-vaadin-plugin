@@ -20,6 +20,7 @@ import com.devsoap.plugin.Util
 import org.gradle.api.file.FileCollection
 import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.bundling.Jar
 
 /**
@@ -61,6 +62,7 @@ class BuildClassPathJar extends Jar {
     /**
      * Is classpath jar enabled
      */
+    @Input
     Boolean getUseClassPathJar() {
         useClassPathJar.get()
     }
