@@ -725,7 +725,7 @@ class Util {
         scannedProjects << project
         Attributes.Name attribute = new Attributes.Name(byAttribute)
 
-        project.configurations.all.each { Configuration conf ->
+        project.configurations.compileClasspath { Configuration conf ->
             if(conf.name != GradleVaadinPlugin.CONFIGURATION_CLIENT){
                 conf.allDependencies.each { Dependency dependency ->
                     if (dependency in ProjectDependency) {

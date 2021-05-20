@@ -376,7 +376,7 @@ class CompileThemeTask extends DefaultTask {
         project.logger.info("Unpacking themes to $unpackedThemesDir")
         def themesAttribute = new Attributes.Name('Vaadin-Stylesheets')
         def bundleName = new Attributes.Name('Bundle-Name')
-        project.configurations.all.each { Configuration conf ->
+        project.configurations.compileClasspath { Configuration conf ->
             conf.allDependencies.each { Dependency dependency ->
                 if ( dependency in ProjectDependency ) {
                     def dependentProject = dependency.dependencyProject
